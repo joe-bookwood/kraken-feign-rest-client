@@ -18,6 +18,7 @@ public class AssetInfo implements Serializable{
 	@JsonProperty("aclass")
 	private String assetClass;
 
+	@JsonProperty("decimals")
 	private Byte decimals;
 
 	@JsonProperty("display_decimals")
