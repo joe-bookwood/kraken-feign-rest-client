@@ -14,10 +14,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import de.bitc.kraken.api.model.CandleStick;
-import de.bitc.kraken.api.model.OhclPayload;
-import de.bitc.kraken.api.model.OhlcResponse;
-
 class OhclResponseTest {
 
 	private String json;
@@ -42,7 +38,6 @@ class OhclResponseTest {
 		assertNotNull(result);
 		List<CandleStick> candleStick = result.getCandleSticks();
 		assertEquals(2, candleStick.size());
-
 	}
 
 }

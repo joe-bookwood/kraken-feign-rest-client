@@ -15,8 +15,8 @@ public class OhclPayload {
 	private Long last;
 
 	public OhclPayload(List<CandleStick> candleSticks, Long last) {
-		this.last = last;
 		this.candleSticks = candleSticks;
+		this.last = last;
 	}
 
 	/**

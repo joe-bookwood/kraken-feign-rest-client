@@ -11,14 +11,14 @@ import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 
-public class MillisToLocalDateTimeDeserializer extends LocalDateTimeDeserializer {
+public class EpochToLocalDateTimeDeserializer extends LocalDateTimeDeserializer {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5132749395514563528L;
 
-	public MillisToLocalDateTimeDeserializer() {
+	public EpochToLocalDateTimeDeserializer() {
 		super(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
 	}
 
@@ -26,7 +26,7 @@ public class MillisToLocalDateTimeDeserializer extends LocalDateTimeDeserializer
 	public LocalDateTime deserialize(JsonParser parser, DeserializationContext context) throws IOException {
 		if(parser.hasToken(JsonToken.VALUE_NUMBER_INT)) {
 			long value = parser.getValueAsLong();
-            Instant instant = Instant.ofEpochMilli(value);
+			Instant instant = Instant.ofEpochSecond(value);
 
             return LocalDateTime.ofInstant(instant, ZoneOffset.UTC);
 		}
