@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonFormat(shape = JsonFormat.Shape.ARRAY)
 @JsonPropertyOrder({ "time", "open", "high", "low", "close", "vwap", "volume", "count" })
-public class Candelstick implements Serializable {
+public class CandleStick implements Serializable {
 
 	/**
 	 * 
@@ -157,7 +157,7 @@ public class Candelstick implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Candelstick other = (Candelstick) obj;
+		CandleStick other = (CandleStick) obj;
 		return Objects.equals(close, other.close) && Objects.equals(count, other.count)
 				&& Objects.equals(high, other.high) && Objects.equals(low, other.low)
 				&& Objects.equals(open, other.open) && Objects.equals(time, other.time)

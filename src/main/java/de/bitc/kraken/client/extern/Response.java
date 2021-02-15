@@ -1,16 +1,10 @@
 package de.bitc.kraken.client.extern;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Response<T> implements Serializable{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 2533186034772036395L;
+public class Response<T> {
 
 	private List<String> error = new ArrayList<>();
 	private T result;

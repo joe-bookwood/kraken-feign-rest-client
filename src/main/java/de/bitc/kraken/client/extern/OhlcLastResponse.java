@@ -2,10 +2,6 @@ package de.bitc.kraken.client.extern;
 
 public class OhlcLastResponse<T> extends Response<T> {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5356279077013870067L;
 	private Long last;
 
 	/**
