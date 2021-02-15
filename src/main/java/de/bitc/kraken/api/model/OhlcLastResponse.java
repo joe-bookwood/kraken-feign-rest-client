@@ -1,4 +1,4 @@
-package de.bitc.kraken.client.extern;
+package de.bitc.kraken.api.model;
 
 public class OhlcLastResponse<T> extends Response<T> {
 

@@ -1,4 +1,4 @@
-package de.bitc.kraken.client.extern;
+package de.bitc.kraken.api.deserializer;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,6 +13,9 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
+
+import de.bitc.kraken.api.model.CandleStick;
+import de.bitc.kraken.api.model.OhclPayload;
 
 public class OhlcDeserializer extends JsonDeserializer<OhclPayload> {
 

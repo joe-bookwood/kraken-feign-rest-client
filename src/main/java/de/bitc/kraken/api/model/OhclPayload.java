@@ -1,9 +1,11 @@
-package de.bitc.kraken.client.extern;
+package de.bitc.kraken.api.model;
 
 import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import de.bitc.kraken.api.deserializer.OhlcDeserializer;
 
 @JsonDeserialize(using = OhlcDeserializer.class)
 public class OhclPayload {

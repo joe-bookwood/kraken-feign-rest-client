@@ -1,4 +1,4 @@
-package de.bitc.kraken.client.extern;
+package de.bitc.kraken.api.model;
 
 import java.io.Serializable;
 import java.util.Objects;

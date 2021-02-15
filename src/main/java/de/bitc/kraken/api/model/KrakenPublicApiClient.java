@@ -1,4 +1,4 @@
-package de.bitc.kraken.client.extern;
+package de.bitc.kraken.api.model;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
