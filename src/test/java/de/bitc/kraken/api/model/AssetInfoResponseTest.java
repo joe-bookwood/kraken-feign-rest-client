@@ -1,7 +1,8 @@
-package de.bitc.kraken.client.extern;
+package de.bitc.kraken.api.model;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.io.InputStream;
 import java.nio.charset.Charset;
 
 import org.apache.commons.io.IOUtils;
@@ -12,7 +13,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-class OhclResponseTest {
+import de.bitc.kraken.api.model.AssetInfoResponse;
+
+class AssetInfoResponseTest {
 
 	private String json;
 	private ObjectMapper mapper;
@@ -21,15 +24,15 @@ class OhclResponseTest {
 	void setUp() throws Exception {
 		mapper = new ObjectMapper();
 
-		json = IOUtils.toString(this.getClass().getResourceAsStream("/kraken/json/ohlc.json"),
+		json = IOUtils.toString(this.getClass().getResourceAsStream("/kraken/json/asset-info.json"),
 				Charset.defaultCharset());
 	}
 
 	@Test
 	void test() throws JsonMappingException, JsonProcessingException {
-		OhlcResponse response = mapper.readValue(json, OhlcResponse.class);
+		AssetInfoResponse assetInfoResponse = mapper.readValue(json, AssetInfoResponse.class);
 
-		assertNotNull(response);
+		assertNotNull(assetInfoResponse);
 	}
 
 }

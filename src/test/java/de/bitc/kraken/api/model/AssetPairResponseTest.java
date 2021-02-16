@@ -1,4 +1,4 @@
-package de.bitc.kraken.client.extern;
+package de.bitc.kraken.api.model;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import de.bitc.kraken.api.model.AssetPairResponse;
 
 class AssetPairResponseTest {
 
