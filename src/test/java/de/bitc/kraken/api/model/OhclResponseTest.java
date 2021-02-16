@@ -22,8 +22,6 @@ class OhclResponseTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		mapper = new ObjectMapper();
-//		SimpleModule module = new SimpleModule();
-//		module.addDeserializer(OhlcDeserializer.class, new OhlcDeserializer());
 
 		json = IOUtils.toString(this.getClass().getResourceAsStream("/kraken/json/ohlc.json"),
 				Charset.defaultCharset());
