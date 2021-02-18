@@ -4,7 +4,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.Set;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
@@ -24,10 +23,6 @@ class KrakenPublicApiClientIT {
 
 	@Autowired
 	private KrakenTestService service;
-
-	@BeforeEach
-	void setUp() throws Exception {
-	}
 
 	@Test
 	void test() {
