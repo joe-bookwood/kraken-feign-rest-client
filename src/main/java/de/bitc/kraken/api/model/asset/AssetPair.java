@@ -1,10 +1,12 @@
-package de.bitc.kraken.api.model;
+package de.bitc.kraken.api.model.asset;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import de.bitc.kraken.api.model.Fee;
 
 public class AssetPair implements Serializable{
 

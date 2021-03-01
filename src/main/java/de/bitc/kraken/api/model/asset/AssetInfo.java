@@ -1,4 +1,4 @@
-package de.bitc.kraken.api.model;
+package de.bitc.kraken.api.model.asset;
 
 import java.io.Serializable;
 import java.util.Objects;
