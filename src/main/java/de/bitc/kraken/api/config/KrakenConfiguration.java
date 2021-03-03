@@ -1,4 +1,4 @@
-package de.bitc.kraken.config;
+package de.bitc.kraken.api.config;
 
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.FeignClientsConfiguration;
