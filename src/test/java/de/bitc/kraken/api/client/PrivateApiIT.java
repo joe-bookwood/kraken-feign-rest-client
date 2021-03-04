@@ -1,13 +1,14 @@
 package de.bitc.kraken.api.client;
 
-import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.post;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.junit.Assert.assertNotNull;
 
 import java.nio.charset.Charset;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
-import org.junit.Rule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,7 +25,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.netflix.loadbalancer.Server;
 import com.netflix.loadbalancer.ServerList;
 
@@ -47,12 +47,13 @@ class PrivateApiIT {
 	@Autowired
 	private WireMockServer mockKrakenService;
 
-	@Rule
-	public static WireMockRule wireMockRule = new WireMockRule(options().port(9561));
-
 	@BeforeEach
 	void setUp() throws Exception {
 		String jsonAnswer = IOUtils.toString(this.getClass().getResourceAsStream("/kraken/json/balance.json"));
+
+		mockKrakenService.stubFor(post(urlEqualTo("/0/private/Balance"))
+				.willReturn(aResponse().withHeader("Content-Type", "application/json; charset=utf-8")
+						.withBody(jsonAnswer)));
 	}
 
 	@Test
