@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@EnableFeignClients
+@EnableFeignClients(basePackages = "de.bitc.kraken.api.client")
 @Import(FeignClientsConfiguration.class)
 public class KrakenConfiguration {
 

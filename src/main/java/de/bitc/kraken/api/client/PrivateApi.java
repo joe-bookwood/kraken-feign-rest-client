@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import de.bitc.kraken.api.model.BalanceResponse;
+import de.bitc.kraken.api.model.OpenOrderResponse;
 
 @Service
 public class PrivateApi {
@@ -23,5 +24,13 @@ public class PrivateApi {
 		Map<String, String> header = cryptUtils.initParams();
 		String signature = cryptUtils.generateSignature(apiSecret, "/0/private/Balance", header);
 		return krakenPrivateApiClient.fetchBalance(apiKey, signature);
+	}
+
+	public OpenOrderResponse getOpenOrders(String apiKey, String apiSecret)
+			throws InvalidKeyException, NoSuchAlgorithmException {
+		Map<String, String> header = cryptUtils.initParams();
+		String signature = cryptUtils.generateSignature(apiSecret, "/0/private/Balance", header);
+		return krakenPrivateApiClient.fetchOpenOrders(apiKey, signature);
+
 	}
 }

@@ -30,6 +30,7 @@ import com.netflix.loadbalancer.ServerList;
 
 import de.bitc.kraken.api.config.WireMockConfig;
 import de.bitc.kraken.api.model.BalanceResponse;
+import de.bitc.kraken.api.model.OpenOrderResponse;
 import wiremock.org.apache.commons.io.IOUtils;
 
 @RunWith(SpringRunner.class)
@@ -39,6 +40,8 @@ import wiremock.org.apache.commons.io.IOUtils;
 @ComponentScan("de.bitc")
 @ContextConfiguration(classes = { WireMockConfig.class })
 class PrivateApiIT {
+	private static final String API_KEY = "gca72q69nRandomGeneratedTestExampleI1Xr/WmrDTOnXGU5cMjud";
+
 	private static final Charset UTF8_CHARSET = Charset.forName("UTF-8");
 
 	@Autowired
@@ -47,18 +50,31 @@ class PrivateApiIT {
 	@Autowired
 	private WireMockServer mockKrakenService;
 
+	private String jsonBalanceAnswer;
+
+	private String jsonOpenOrdersAnswer ;
+
 	@BeforeEach
 	void setUp() throws Exception {
-		String jsonAnswer = IOUtils.toString(this.getClass().getResourceAsStream("/kraken/json/balance.json"));
-
-		mockKrakenService.stubFor(post(urlEqualTo("/0/private/Balance"))
-				.willReturn(aResponse().withHeader("Content-Type", "application/json; charset=utf-8")
-						.withBody(jsonAnswer)));
+		jsonBalanceAnswer = IOUtils.toString(this.getClass().getResourceAsStream("/kraken/json/balance.json"));
+		jsonOpenOrdersAnswer = IOUtils.toString(this.getClass().getResourceAsStream("/kraken/json/open-orders.json"));
 	}
 
 	@Test
 	void testBalance() throws InvalidKeyException, NoSuchAlgorithmException {
-		BalanceResponse response = privateApi.getBalance("gca72q69nRandomGeneratedTestExampleI1Xr/WmrDTOnXGU5cMjud",
+		mockKrakenService.stubFor(post(urlEqualTo("/0/private/Balance")).willReturn(
+				aResponse().withHeader("Content-Type", "application/json; charset=utf-8").withBody(jsonBalanceAnswer)));
+		BalanceResponse response = privateApi.getBalance(API_KEY,
+				"fRF3XSNJO++5RandomizedTestExamplejsepwS634PJGylaIYeEY4gzuWVuL3JkM23vrN1Cr66ibCvQqh65Hz==");
+		assertNotNull(response);
+	}
+
+	@Test
+	void testOrder() throws InvalidKeyException, NoSuchAlgorithmException {
+		mockKrakenService.stubFor(post(urlEqualTo("/0/private/OpenOrders")).willReturn(
+				aResponse().withHeader("Content-Type", "application/json; charset=utf-8")
+						.withBody(jsonOpenOrdersAnswer)));
+		OpenOrderResponse response = privateApi.getOpenOrders(API_KEY,
 				"fRF3XSNJO++5RandomizedTestExamplejsepwS634PJGylaIYeEY4gzuWVuL3JkM23vrN1Cr66ibCvQqh65Hz==");
 		assertNotNull(response);
 	}
