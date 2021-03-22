@@ -29,7 +29,7 @@ public class PrivateApi {
 	public OpenOrderResponse getOpenOrders(String apiKey, String apiSecret)
 			throws InvalidKeyException, NoSuchAlgorithmException {
 		Map<String, String> header = cryptUtils.initParams();
-		String signature = cryptUtils.generateSignature(apiSecret, "/0/private/Balance", header);
+		String signature = cryptUtils.generateSignature(apiSecret, "/0/private/OpenOrders", header);
 		return krakenPrivateApiClient.fetchOpenOrders(apiKey, signature);
 
 	}
