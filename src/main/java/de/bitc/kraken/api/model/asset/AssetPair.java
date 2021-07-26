@@ -3,6 +3,7 @@ package de.bitc.kraken.api.model.asset;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -31,7 +32,7 @@ public class AssetPair implements Serializable{
 	private String quoteAssetClass;
 
 	@JsonProperty("quote")
-	private String quoteAssetId;
+	private String quoteAsset;
 
 	@JsonProperty("lot")
 	private String lot;
@@ -142,17 +143,17 @@ public class AssetPair implements Serializable{
 	}
 
 	/**
-	 * @return the quoteAssetId
+	 * @return the quoteAsset
 	 */
-	public String getQuoteAssetId() {
-		return quoteAssetId;
+	public String getQuoteAsset() {
+		return quoteAsset;
 	}
 
 	/**
-	 * @param quoteAssetId the quoteAssetId to set
+	 * @param quoteAsset the quoteAsset to set
 	 */
-	public void setQuoteAssetId(String quoteAssetId) {
-		this.quoteAssetId = quoteAssetId;
+	public void setQuoteAsset(String quoteAsset) {
+		this.quoteAsset = quoteAsset;
 	}
 
 	/**
@@ -337,5 +338,32 @@ public class AssetPair implements Serializable{
 		this.ordermin = ordermin;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(alternatePairName, baseAsset, baseAssetClass, feeVolumeCurrency, fees, feesMaker,
+				leverageBuy, leverageSell, lot, lotDecimals, lotMultiplier, marginCall, marginLevel, marginStop,
+				ordermin, pairDecimals, quoteAsset, quoteAssetClass, wsName);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AssetPair other = (AssetPair) obj;
+		return Objects.equals(alternatePairName, other.alternatePairName) && Objects.equals(baseAsset, other.baseAsset)
+				&& Objects.equals(baseAssetClass, other.baseAssetClass)
+				&& Objects.equals(feeVolumeCurrency, other.feeVolumeCurrency) && Objects.equals(fees, other.fees)
+				&& Objects.equals(feesMaker, other.feesMaker) && Objects.equals(leverageBuy, other.leverageBuy)
+				&& Objects.equals(leverageSell, other.leverageSell) && Objects.equals(lot, other.lot)
+				&& Objects.equals(lotDecimals, other.lotDecimals) && Objects.equals(lotMultiplier, other.lotMultiplier)
+				&& Objects.equals(marginCall, other.marginCall) && Objects.equals(marginLevel, other.marginLevel)
+				&& Objects.equals(marginStop, other.marginStop) && Objects.equals(ordermin, other.ordermin)
+				&& Objects.equals(pairDecimals, other.pairDecimals) && Objects.equals(quoteAsset, other.quoteAsset)
+				&& Objects.equals(quoteAssetClass, other.quoteAssetClass) && Objects.equals(wsName, other.wsName);
+	}
 
 }

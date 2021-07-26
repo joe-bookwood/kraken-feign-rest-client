@@ -1,0 +1,3 @@
+clients:
+  krakenPrivate:
+    server: http://localhost:9561

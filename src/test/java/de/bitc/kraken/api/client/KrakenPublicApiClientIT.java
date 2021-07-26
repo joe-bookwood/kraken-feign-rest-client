@@ -25,9 +25,10 @@ class KrakenPublicApiClientIT {
 	private KrakenTestService service;
 
 	@Test
-	void test() {
+	void testAssets() {
 		Set<String> set = service.getAssets();
 		assertNotNull(set);
 	}
+
 
 }

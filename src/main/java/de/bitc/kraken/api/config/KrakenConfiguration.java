@@ -1,4 +1,4 @@
-package de.bitc.kraken.config;
+package de.bitc.kraken.api.config;
 
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.FeignClientsConfiguration;
@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@EnableFeignClients
+@EnableFeignClients(basePackages = "de.bitc.kraken.api.client")
 @Import(FeignClientsConfiguration.class)
 public class KrakenConfiguration {
 
