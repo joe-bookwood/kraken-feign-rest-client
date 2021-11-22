@@ -1,18 +1,17 @@
 package de.bitc.kraken.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.IOUtils;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.nio.charset.Charset;
 import java.util.List;
 
-import org.apache.commons.io.IOUtils;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class OhclResponseTest {
 
@@ -35,7 +34,7 @@ class OhclResponseTest {
 		OhclPayload result = response.getResult();
 		assertNotNull(result);
 		List<CandleStick> candleStick = result.getCandleSticks();
-		assertEquals(2, candleStick.size());
+		Assertions.assertEquals(2, candleStick.size());
 	}
 
 }

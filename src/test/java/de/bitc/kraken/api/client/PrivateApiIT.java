@@ -1,18 +1,15 @@
 package de.bitc.kraken.api.client;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
-import static com.github.tomakehurst.wiremock.client.WireMock.post;
-import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
-import static org.junit.Assert.assertNotNull;
-
-import java.nio.charset.Charset;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-
+import com.github.tomakehurst.wiremock.WireMockServer;
+import com.netflix.loadbalancer.Server;
+import com.netflix.loadbalancer.ServerList;
+import de.bitc.kraken.api.config.WireMockConfig;
+import de.bitc.kraken.api.model.BalanceResponse;
+import de.bitc.kraken.api.model.OpenOrderResponse;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,18 +19,15 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import com.github.tomakehurst.wiremock.WireMockServer;
-import com.netflix.loadbalancer.Server;
-import com.netflix.loadbalancer.ServerList;
-
-import de.bitc.kraken.api.config.WireMockConfig;
-import de.bitc.kraken.api.model.BalanceResponse;
-import de.bitc.kraken.api.model.OpenOrderResponse;
 import wiremock.org.apache.commons.io.IOUtils;
 
-@RunWith(SpringRunner.class)
+import java.nio.charset.Charset;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = TestApp.class)
 @EnableConfigurationProperties
 @ExtendWith(SpringExtension.class)
@@ -66,7 +60,7 @@ class PrivateApiIT {
 				aResponse().withHeader("Content-Type", "application/json; charset=utf-8").withBody(jsonBalanceAnswer)));
 		BalanceResponse response = privateApi.getBalance(API_KEY,
 				"fRF3XSNJO++5RandomizedTestExamplejsepwS634PJGylaIYeEY4gzuWVuL3JkM23vrN1Cr66ibCvQqh65Hz==");
-		assertNotNull(response);
+		Assertions.assertNotNull(response);
 	}
 
 	@Test
@@ -76,7 +70,7 @@ class PrivateApiIT {
 						.withBody(jsonOpenOrdersAnswer)));
 		OpenOrderResponse response = privateApi.getOpenOrders(API_KEY,
 				"fRF3XSNJO++5RandomizedTestExamplejsepwS634PJGylaIYeEY4gzuWVuL3JkM23vrN1Cr66ibCvQqh65Hz==");
-		assertNotNull(response);
+		Assertions.assertNotNull(response);
 	}
 
 	@Configuration

@@ -1,18 +1,17 @@
 package de.bitc.kraken.api.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.IOUtils;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
 
-import org.apache.commons.io.IOUtils;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class BalanceResponseTest {
 
@@ -36,7 +35,7 @@ class BalanceResponseTest {
 		BigDecimal xxbt = balanceResponse.getResult().get("XXBT");
 		assertNotNull(xxbt);
 
-		assertEquals(xxbt.toString(), "0.0000679600");
+		Assertions.assertEquals( "0.0000679600",xxbt.toString());
 	}
 
 }
