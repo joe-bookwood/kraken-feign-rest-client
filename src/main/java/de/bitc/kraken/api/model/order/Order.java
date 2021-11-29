@@ -1,13 +1,12 @@
 package de.bitc.kraken.api.model.order;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import de.bitc.kraken.api.deserializer.EpochMilliesToZonedDateTimeDeserializer;
 
-import de.bitc.kraken.api.deserializer.EpochMilliesToLocalDateTimeDeserializer;
+import java.math.BigDecimal;
+import java.time.ZonedDateTime;
+import java.util.Objects;
 
 public class Order {
 
@@ -24,20 +23,20 @@ public class Order {
 	private String reason;
 
 	@JsonProperty("opentm")
-	@JsonDeserialize(using = EpochMilliesToLocalDateTimeDeserializer.class)
-	private LocalDateTime openTimestamp;
+	@JsonDeserialize(using = EpochMilliesToZonedDateTimeDeserializer.class)
+	private ZonedDateTime openTimestamp;
 
 	@JsonProperty("closetm")
-	@JsonDeserialize(using = EpochMilliesToLocalDateTimeDeserializer.class)
-	private LocalDateTime closeTimestamp;
+	@JsonDeserialize(using = EpochMilliesToZonedDateTimeDeserializer.class)
+	private ZonedDateTime closeTimestamp;
 
 	@JsonProperty("starttm")
-	@JsonDeserialize(using = EpochMilliesToLocalDateTimeDeserializer.class)
-	private LocalDateTime orderStartTimestamp;
+	@JsonDeserialize(using = EpochMilliesToZonedDateTimeDeserializer.class)
+	private ZonedDateTime orderStartTimestamp;
 
 	@JsonProperty("expiretm")
-	@JsonDeserialize(using = EpochMilliesToLocalDateTimeDeserializer.class)
-	private LocalDateTime orderEndTimestamp;
+	@JsonDeserialize(using = EpochMilliesToZonedDateTimeDeserializer.class)
+	private ZonedDateTime orderEndTimestamp;
 
 	@JsonProperty("descr")
 	private Description description;
@@ -126,56 +125,56 @@ public class Order {
 	/**
 	 * @return the openTimestamp
 	 */
-	public LocalDateTime getOpenTimestamp() {
+	public ZonedDateTime getOpenTimestamp() {
 		return openTimestamp;
 	}
 
 	/**
 	 * @param openTimestamp the openTimestamp to set
 	 */
-	public void setOpenTimestamp(LocalDateTime openTimestamp) {
+	public void setOpenTimestamp(ZonedDateTime openTimestamp) {
 		this.openTimestamp = openTimestamp;
 	}
 
 	/**
 	 * @return the closeTimestamp
 	 */
-	public LocalDateTime getCloseTimestamp() {
+	public ZonedDateTime getCloseTimestamp() {
 		return closeTimestamp;
 	}
 
 	/**
 	 * @param closeTimestamp the closeTimestamp to set
 	 */
-	public void setCloseTimestamp(LocalDateTime closeTimestamp) {
+	public void setCloseTimestamp(ZonedDateTime closeTimestamp) {
 		this.closeTimestamp = closeTimestamp;
 	}
 
 	/**
 	 * @return the orderStartTimestamp
 	 */
-	public LocalDateTime getOrderStartTimestamp() {
+	public ZonedDateTime getOrderStartTimestamp() {
 		return orderStartTimestamp;
 	}
 
 	/**
 	 * @param orderStartTimestamp the orderStartTimestamp to set
 	 */
-	public void setOrderStartTimestamp(LocalDateTime orderStartTimestamp) {
+	public void setOrderStartTimestamp(ZonedDateTime orderStartTimestamp) {
 		this.orderStartTimestamp = orderStartTimestamp;
 	}
 
 	/**
 	 * @return the orderEndTimestamp
 	 */
-	public LocalDateTime getOrderEndTimestamp() {
+	public ZonedDateTime getOrderEndTimestamp() {
 		return orderEndTimestamp;
 	}
 
 	/**
 	 * @param orderEndTimestamp the orderEndTimestamp to set
 	 */
-	public void setOrderEndTimestamp(LocalDateTime orderEndTimestamp) {
+	public void setOrderEndTimestamp(ZonedDateTime orderEndTimestamp) {
 		this.orderEndTimestamp = orderEndTimestamp;
 	}
 

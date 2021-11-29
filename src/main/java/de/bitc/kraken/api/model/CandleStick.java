@@ -2,7 +2,7 @@ package de.bitc.kraken.api.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import de.bitc.kraken.api.deserializer.EpochToLocalDateTimeDeserializer;
+import de.bitc.kraken.api.deserializer.EpochToZonedDateTimeDeserializer;
 
 @JsonFormat(shape = JsonFormat.Shape.ARRAY)
 @JsonPropertyOrder({ "time", "open", "high", "low", "close", "vwap", "volume", "count" })
@@ -21,8 +21,8 @@ public class CandleStick implements Serializable {
 	 */
 	private static final long serialVersionUID = 2368569883506418449L;
 
-	@JsonDeserialize(using = EpochToLocalDateTimeDeserializer.class)
-	private LocalDateTime time;
+	@JsonDeserialize(using = EpochToZonedDateTimeDeserializer.class)
+	private ZonedDateTime time;
 
 	private BigDecimal open;
 
@@ -42,14 +42,14 @@ public class CandleStick implements Serializable {
 	/**
 	 * @return the time
 	 */
-	public LocalDateTime getTime() {
+	public ZonedDateTime getTime() {
 		return time;
 	}
 
 	/**
 	 * @param time the time to set
 	 */
-	public void setTime(LocalDateTime time) {
+	public void setTime(ZonedDateTime time) {
 		this.time = time;
 	}
 
