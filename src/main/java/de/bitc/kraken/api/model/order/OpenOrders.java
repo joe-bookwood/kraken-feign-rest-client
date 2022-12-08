@@ -7,10 +7,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class OpenOrders implements Serializable{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7654308871646027845L;
 	@JsonProperty("open")
 	private Map<String, Order> open;
 

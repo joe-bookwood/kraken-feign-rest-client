@@ -9,10 +9,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonFormat(shape = JsonFormat.Shape.ARRAY)
 @JsonPropertyOrder({ "volume", "percent" })
 public class Fee implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7824923024905401144L;
+
 	private Integer volume;
 	private Float percent;
 

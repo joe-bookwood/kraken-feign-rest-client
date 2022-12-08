@@ -16,11 +16,6 @@ import de.bitc.kraken.api.deserializer.EpochToZonedDateTimeDeserializer;
 @JsonPropertyOrder({ "time", "open", "high", "low", "close", "vwap", "volume", "count" })
 public class CandleStick implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 2368569883506418449L;
-
 	@JsonDeserialize(using = EpochToZonedDateTimeDeserializer.class)
 	private ZonedDateTime time;
 

@@ -11,10 +11,6 @@ import de.bitc.kraken.api.model.Fee;
 
 public class AssetPair implements Serializable{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 284620740727838317L;
 
 	@JsonProperty("altname")
 	private String alternatePairName;

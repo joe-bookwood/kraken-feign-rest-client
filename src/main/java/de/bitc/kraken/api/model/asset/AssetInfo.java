@@ -7,10 +7,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AssetInfo implements Serializable{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 7062167867024065926L;
 
 	@JsonProperty("altname")
 	private String alternateName;

@@ -8,10 +8,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ClosedOrders implements Serializable{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7654308871646027845L;
 
 	@JsonProperty("closed")
 	private Map<String, Order> closed;

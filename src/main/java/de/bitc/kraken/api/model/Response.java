@@ -7,10 +7,6 @@ import java.util.Objects;
 
 public class Response<T> implements Serializable{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -23959711016578031L;
 
 	private List<String> error = new ArrayList<>();
 	private T result;
