@@ -7,7 +7,7 @@ public enum Status {
 	PENDING("pending"), OPEN("open"), CLOSED("closed"), CANCELED("canceled"), EXPIRED("expired");
 
 	@JsonValue
-	private String value;
+	private final String value;
 
 	Status(String string) {
 		this.value = string;

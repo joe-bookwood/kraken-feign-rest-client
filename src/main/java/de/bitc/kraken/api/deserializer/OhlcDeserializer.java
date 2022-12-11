@@ -1,5 +1,13 @@
 package de.bitc.kraken.api.deserializer;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.ObjectCodec;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import de.bitc.kraken.api.model.CandleStick;
+import de.bitc.kraken.api.model.OhclPayload;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -7,21 +15,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.ObjectCodec;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.JsonNode;
-
-import de.bitc.kraken.api.model.CandleStick;
-import de.bitc.kraken.api.model.OhclPayload;
-
 public class OhlcDeserializer extends JsonDeserializer<OhclPayload> {
 
 	@Override
 	public OhclPayload deserialize(JsonParser p, DeserializationContext ctxt)
-			throws IOException, JsonProcessingException {
+			throws IOException {
 
 		List<CandleStick> candleSticks = new ArrayList<CandleStick>();
 

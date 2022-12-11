@@ -27,7 +27,7 @@ class OpenOrderResponseTest {
 	}
 
 	@Test
-	void test() throws JsonMappingException, JsonProcessingException {
+	void test() throws JsonProcessingException {
 		OpenOrderResponse openOrderResponse = mapper.readValue(json, OpenOrderResponse.class);
 		assertNotNull(openOrderResponse);
 	}

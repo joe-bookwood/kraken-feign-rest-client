@@ -1,13 +1,12 @@
 package de.bitc.kraken.api.model.asset;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import de.bitc.kraken.api.model.Fee;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import de.bitc.kraken.api.model.Fee;
 
 public class AssetPair implements Serializable{
 
@@ -43,12 +42,12 @@ public class AssetPair implements Serializable{
 	private Integer lotMultiplier;
 
 	@JsonProperty("leverage_buy")
-	private List<Integer> leverageBuy = new ArrayList<>();;
+	private List<Integer> leverageBuy = new ArrayList<>();
 
 	@JsonProperty("leverage_sell")
-	private List<Integer> leverageSell = new ArrayList<>();;
+	private List<Integer> leverageSell = new ArrayList<>();
 
-	private List<Fee> fees = new ArrayList<>();;
+	private List<Fee> fees = new ArrayList<>();
 
 	@JsonProperty("fees_maker")
 	private List<Fee> feesMaker = new ArrayList<>();

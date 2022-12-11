@@ -1,8 +1,8 @@
 package de.bitc.kraken.api.model;
 
-import java.util.Map;
-
 import de.bitc.kraken.api.model.asset.AssetPair;
+
+import java.util.Map;
 
 public class AssetPairResponse extends Response<Map<String, AssetPair>> {
 

@@ -1,5 +1,9 @@
 package de.bitc.kraken.api.client;
 
+import org.springframework.stereotype.Service;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
@@ -11,11 +15,6 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-
-import org.springframework.stereotype.Service;
 
 /**
  * I try to implement the javascript functions from the Kraken Postman Template
@@ -37,7 +36,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CryptUtils {
 
-	private static final Charset UTF8_CHARSET = Charset.forName("UTF-8");
+	private static final Charset UTF8_CHARSET = StandardCharsets.UTF_8;
 
 	public Long nonce() {
 		LocalDateTime ts = LocalDateTime.now();
@@ -91,7 +90,7 @@ public class CryptUtils {
 	 */
 	public byte[] concatByteArray(byte[] a, byte[] b) {
 		int cLength = a.length + b.length;
-		byte c[] = new byte[cLength];
+		byte[] c = new byte[cLength];
 		for (int i = 0; i < cLength; i++) {
 			c[i] = i < a.length ? a[i] : b[i - a.length];
 		}

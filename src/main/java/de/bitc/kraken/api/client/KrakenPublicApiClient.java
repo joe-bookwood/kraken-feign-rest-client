@@ -1,10 +1,9 @@
 package de.bitc.kraken.api.client;
 
 import de.bitc.kraken.api.config.KrakenConfiguration;
-import de.bitc.kraken.api.model.AssetInfoResponse;
-import de.bitc.kraken.api.model.AssetPairResponse;
-import de.bitc.kraken.api.model.OhlcResponse;
+import de.bitc.kraken.api.model.*;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,19 +12,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface KrakenPublicApiClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/AssetPairs")
-    AssetPairResponse fetchPairs();
+    ResponseEntity<AssetPairResponse> fetchPairs();
 
     @RequestMapping(method = RequestMethod.GET, value = "/Assets")
-    AssetInfoResponse fetchAssets();
+    ResponseEntity<AssetInfoResponse> fetchAssets();
 
     @RequestMapping(method = RequestMethod.GET, value = "/OHLC")
-    OhlcResponse fetchOhcl(@RequestParam(value = "pair", required = true) String pair,
+    ResponseEntity<OhlcResponse> fetchOhcl(@RequestParam(value = "pair", required = true) String pair,
                            @RequestParam(value = "interval") Integer interval,
-						   @RequestParam(value = "since") Integer since);
+                           @RequestParam(value = "since") Integer since);
 
     @RequestMapping(method = RequestMethod.GET, value = "/Time")
-    AssetPairResponse fetchTime();
+    ResponseEntity<TimeResponse> fetchTime();
 
     @RequestMapping(method = RequestMethod.GET, value = "/Status")
-    AssetPairResponse fetchStatus();
+    ResponseEntity<StatusResponse> fetchStatus();
 }

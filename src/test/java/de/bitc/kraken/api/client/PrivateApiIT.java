@@ -22,6 +22,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import wiremock.org.apache.commons.io.IOUtils;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
@@ -36,7 +37,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 class PrivateApiIT {
 	private static final String API_KEY = "gca72q69nRandomGeneratedTestExampleI1Xr/WmrDTOnXGU5cMjud";
 
-	private static final Charset UTF8_CHARSET = Charset.forName("UTF-8");
+	private static final Charset UTF8_CHARSET = StandardCharsets.UTF_8;
 
 	@Autowired
 	private PrivateApi privateApi;

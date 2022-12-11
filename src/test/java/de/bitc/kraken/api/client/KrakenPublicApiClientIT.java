@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.Optional;
 import java.util.Set;
 
 @ExtendWith(SpringExtension.class)
@@ -23,7 +24,9 @@ class KrakenPublicApiClientIT {
 
 	@Test
 	void testAssets() {
-		Set<String> set = service.getAssets();
+		Optional<Set<String>> optionalAssets = service.getAssets();
+		Assertions.assertTrue(optionalAssets.isPresent());
+		Set<String> set = optionalAssets.get();
 		Assertions.assertNotNull(set);
 	}
 

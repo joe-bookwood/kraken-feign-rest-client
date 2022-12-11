@@ -1,9 +1,9 @@
 package de.bitc.kraken.api.model.order;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 import java.util.Map;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class OpenOrders implements Serializable{
 

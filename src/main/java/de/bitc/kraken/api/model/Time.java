@@ -12,7 +12,7 @@ public class Time implements Serializable {
     @JsonDeserialize(using = EpochToZonedDateTimeDeserializer.class)
     private ZonedDateTime unixtime;
 
-  private String rfc1123;
+    private String rfc1123;
 
     public ZonedDateTime getUnixtime() {
         return unixtime;

@@ -163,12 +163,11 @@ public class Description implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Description [assetPair=").append(assetPair).append(", orderDirection=").append(orderDirection)
-                .append(", orderType=").append(orderType).append(", price=").append(price).append(", secondaryPrice=")
-                .append(secondaryPrice).append(", leverage=").append(leverage).append(", order=").append(order)
-                .append(", close=").append(close).append("]");
-        return builder.toString();
+        String builder = "Description [assetPair=" + assetPair + ", orderDirection=" + orderDirection +
+                ", orderType=" + orderType + ", price=" + price + ", secondaryPrice=" +
+                secondaryPrice + ", leverage=" + leverage + ", order=" + order +
+                ", close=" + close + "]";
+        return builder;
     }
 
 
