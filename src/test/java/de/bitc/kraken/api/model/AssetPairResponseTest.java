@@ -29,7 +29,7 @@ class AssetPairResponseTest {
 	}
 
 	@Test
-	void test() throws JsonMappingException, JsonProcessingException {
+	void test() throws JsonProcessingException {
 		AssetPairResponse assetPairResponse = mapper.readValue(json, AssetPairResponse.class);
 
 		assertNotNull(assetPairResponse);

@@ -1,25 +1,19 @@
 package de.bitc.kraken.api.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import de.bitc.kraken.api.deserializer.EpochToZonedDateTimeDeserializer;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import de.bitc.kraken.api.deserializer.EpochToZonedDateTimeDeserializer;
-
 @JsonFormat(shape = JsonFormat.Shape.ARRAY)
 @JsonPropertyOrder({ "time", "open", "high", "low", "close", "vwap", "volume", "count" })
 public class CandleStick implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 2368569883506418449L;
 
 	@JsonDeserialize(using = EpochToZonedDateTimeDeserializer.class)
 	private ZonedDateTime time;
@@ -174,12 +168,11 @@ public class CandleStick implements Serializable {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("CandleStick [time=").append(time).append(", open=").append(open).append(", high=").append(high)
-				.append(", low=").append(low).append(", close=").append(close).append(", volumeWeightedAveragePrice=")
-				.append(volumeWeightedAveragePrice).append(", volume=").append(volume).append(", count=").append(count)
-				.append("]");
-		return builder.toString();
+		String builder = "CandleStick [time=" + time + ", open=" + open + ", high=" + high +
+				", low=" + low + ", close=" + close + ", volumeWeightedAveragePrice=" +
+				volumeWeightedAveragePrice + ", volume=" + volume + ", count=" + count +
+				"]";
+		return builder;
 	}
 
 

@@ -1,186 +1,174 @@
 package de.bitc.kraken.api.model.order;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+public class Description implements Serializable {
 
-public class Description implements Serializable{
+    @JsonProperty("pair")
+    private String assetPair;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 920892084278915313L;
+    @JsonProperty("type")
+    private Direction orderDirection;
 
-	@JsonProperty("pair")
-	private String assetPair;
+    @JsonProperty("ordertype")
+    private Type orderType;
 
-	@JsonProperty("type")
-	private Direction orderDirection;
+    private BigDecimal price;
 
-	@JsonProperty("ordertype")
-	private Type orderType;
+    @JsonProperty("price2")
+    private BigDecimal secondaryPrice;
 
-	private BigDecimal price;
+    private String leverage;
 
-	@JsonProperty("price2")
-	private BigDecimal secondaryPrice;
+    private String order;
 
-	private String leverage;
+    private String close;
 
-	private String order;
+    /**
+     * @return the assetPair
+     */
+    public String getAssetPair() {
+        return assetPair;
+    }
 
-	private String close;
+    /**
+     * @param assetPair the assetPair to set
+     */
+    public void setAssetPair(String assetPair) {
+        this.assetPair = assetPair;
+    }
 
-	/**
-	 * @return the assetPair
-	 */
-	public String getAssetPair() {
-		return assetPair;
-	}
+    /**
+     * @return the orderDirection
+     */
+    public Direction getOrderDirection() {
+        return orderDirection;
+    }
 
-	/**
-	 * @param assetPair the assetPair to set
-	 */
-	public void setAssetPair(String assetPair) {
-		this.assetPair = assetPair;
-	}
+    /**
+     * @param orderDirection the orderDirection to set
+     */
+    public void setOrderDirection(Direction orderDirection) {
+        this.orderDirection = orderDirection;
+    }
 
-	/**
-	 * @return the orderDirection
-	 */
-	public Direction getOrderDirection() {
-		return orderDirection;
-	}
+    /**
+     * @return the orderType
+     */
+    public Type getOrderType() {
+        return orderType;
+    }
 
-	/**
-	 * @param orderDirection the orderDirection to set
-	 */
-	public void setOrderDirection(Direction orderDirection) {
-		this.orderDirection = orderDirection;
-	}
+    /**
+     * @param orderType the orderType to set
+     */
+    public void setOrderType(Type orderType) {
+        this.orderType = orderType;
+    }
 
-	/**
-	 * @return the orderType
-	 */
-	public Type getOrderType() {
-		return orderType;
-	}
+    /**
+     * @return the price
+     */
+    public BigDecimal getPrice() {
+        return price;
+    }
 
-	/**
-	 * @param orderType the orderType to set
-	 */
-	public void setOrderType(Type orderType) {
-		this.orderType = orderType;
-	}
+    /**
+     * @param price the price to set
+     */
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 
-	/**
-	 * @return the price
-	 */
-	public BigDecimal getPrice() {
-		return price;
-	}
+    /**
+     * @return the secondaryPrice
+     */
+    public BigDecimal getSecondaryPrice() {
+        return secondaryPrice;
+    }
 
-	/**
-	 * @param price the price to set
-	 */
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
+    /**
+     * @param secondaryPrice the secondaryPrice to set
+     */
+    public void setSecondaryPrice(BigDecimal secondaryPrice) {
+        this.secondaryPrice = secondaryPrice;
+    }
 
-	/**
-	 * @return the secondaryPrice
-	 */
-	public BigDecimal getSecondaryPrice() {
-		return secondaryPrice;
-	}
+    /**
+     * @return the leverage
+     */
+    public String getLeverage() {
+        return leverage;
+    }
 
-	/**
-	 * @param secondaryPrice the secondaryPrice to set
-	 */
-	public void setSecondaryPrice(BigDecimal secondaryPrice) {
-		this.secondaryPrice = secondaryPrice;
-	}
+    /**
+     * @param leverage the leverage to set
+     */
+    public void setLeverage(String leverage) {
+        this.leverage = leverage;
+    }
 
-	/**
-	 * @return the leverage
-	 */
-	public String getLeverage() {
-		return leverage;
-	}
+    /**
+     * @return the order
+     */
+    public String getOrder() {
+        return order;
+    }
 
-	/**
-	 * @param leverage the leverage to set
-	 */
-	public void setLeverage(String leverage) {
-		this.leverage = leverage;
-	}
+    /**
+     * @param order the order to set
+     */
+    public void setOrder(String order) {
+        this.order = order;
+    }
 
-	/**
-	 * @return the order
-	 */
-	public String getOrder() {
-		return order;
-	}
+    /**
+     * @return the close
+     */
+    public String getClose() {
+        return close;
+    }
 
-	/**
-	 * @param order the order to set
-	 */
-	public void setOrder(String order) {
-		this.order = order;
-	}
+    /**
+     * @param close the close to set
+     */
+    public void setClose(String close) {
+        this.close = close;
+    }
 
-	/**
-	 * @return the close
-	 */
-	public String getClose() {
-		return close;
-	}
 
-	/**
-	 * @param close the close to set
-	 */
-	public void setClose(String close) {
-		this.close = close;
-	}
+    @Override
+    public int hashCode() {
+        return Objects.hash(assetPair, close, leverage, order, orderDirection, orderType, price, secondaryPrice);
+    }
 
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Description other = (Description) obj;
+        return Objects.equals(assetPair, other.assetPair) && Objects.equals(close, other.close)
+                && Objects.equals(leverage, other.leverage) && Objects.equals(order, other.order)
+                && orderDirection == other.orderDirection && orderType == other.orderType
+                && Objects.equals(price, other.price) && Objects.equals(secondaryPrice, other.secondaryPrice);
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(assetPair, close, leverage, order, orderDirection, orderType, price, secondaryPrice);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Description other = (Description) obj;
-		return Objects.equals(assetPair, other.assetPair) && Objects.equals(close, other.close)
-				&& Objects.equals(leverage, other.leverage) && Objects.equals(order, other.order)
-				&& orderDirection == other.orderDirection && orderType == other.orderType
-				&& Objects.equals(price, other.price) && Objects.equals(secondaryPrice, other.secondaryPrice);
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Description [assetPair=").append(assetPair).append(", orderDirection=").append(orderDirection)
-				.append(", orderType=").append(orderType).append(", price=").append(price).append(", secondaryPrice=")
-				.append(secondaryPrice).append(", leverage=").append(leverage).append(", order=").append(order)
-				.append(", close=").append(close).append("]");
-		return builder.toString();
-	}
+    @Override
+    public String toString() {
+        String builder = "Description [assetPair=" + assetPair + ", orderDirection=" + orderDirection +
+                ", orderType=" + orderType + ", price=" + price + ", secondaryPrice=" +
+                secondaryPrice + ", leverage=" + leverage + ", order=" + order +
+                ", close=" + close + "]";
+        return builder;
+    }
 
 
 }

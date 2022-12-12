@@ -28,7 +28,7 @@ class BalanceResponseTest {
 	}
 
 	@Test
-	void test() throws JsonMappingException, JsonProcessingException {
+	void test() throws JsonProcessingException {
 		BalanceResponse balanceResponse = mapper.readValue(json, BalanceResponse.class);
 
 		assertNotNull(balanceResponse);

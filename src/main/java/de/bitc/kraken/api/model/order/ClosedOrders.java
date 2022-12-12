@@ -1,17 +1,13 @@
 package de.bitc.kraken.api.model.order;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 import java.util.Map;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class ClosedOrders implements Serializable{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7654308871646027845L;
 
 	@JsonProperty("closed")
 	private Map<String, Order> closed;

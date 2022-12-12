@@ -1,18 +1,15 @@
 package de.bitc.kraken.api.model;
 
-import java.io.Serializable;
-import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import java.io.Serializable;
+import java.util.Objects;
 
 @JsonFormat(shape = JsonFormat.Shape.ARRAY)
 @JsonPropertyOrder({ "volume", "percent" })
 public class Fee implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7824923024905401144L;
+
 	private Integer volume;
 	private Float percent;
 
@@ -63,9 +60,7 @@ public class Fee implements Serializable{
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Fee [volume=").append(volume).append(", percent=").append(percent).append("]");
-		return builder.toString();
+		return "Fee [volume=" + volume + ", percent=" + percent + "]";
 	}
 
 }

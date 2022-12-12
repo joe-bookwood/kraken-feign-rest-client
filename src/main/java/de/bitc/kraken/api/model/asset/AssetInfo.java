@@ -1,16 +1,12 @@
 package de.bitc.kraken.api.model.asset;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class AssetInfo implements Serializable{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 7062167867024065926L;
 
 	@JsonProperty("altname")
 	private String alternateName;
@@ -100,11 +96,10 @@ public class AssetInfo implements Serializable{
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("AssetInfo [alternateName=").append(alternateName).append(", assetClass=").append(assetClass)
-				.append(", decimals=").append(decimals).append(", displayDecimals=").append(displayDecimals)
-				.append("]");
-		return builder.toString();
+		String builder = "AssetInfo [alternateName=" + alternateName + ", assetClass=" + assetClass +
+				", decimals=" + decimals + ", displayDecimals=" + displayDecimals +
+				"]";
+		return builder;
 	}
 
 }

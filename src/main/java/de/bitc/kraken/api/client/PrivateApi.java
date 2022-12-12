@@ -1,14 +1,13 @@
 package de.bitc.kraken.api.client;
 
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.util.Map;
-
+import de.bitc.kraken.api.model.BalanceResponse;
+import de.bitc.kraken.api.model.OpenOrderResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import de.bitc.kraken.api.model.BalanceResponse;
-import de.bitc.kraken.api.model.OpenOrderResponse;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.util.Map;
 
 @Service
 public class PrivateApi {

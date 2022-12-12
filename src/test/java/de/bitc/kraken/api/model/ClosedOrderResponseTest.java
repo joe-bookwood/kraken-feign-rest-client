@@ -27,7 +27,7 @@ class ClosedOrderResponseTest {
 	}
 
 	@Test
-	void test() throws JsonMappingException, JsonProcessingException {
+	void test() throws JsonProcessingException {
 		ClosedOrderResponse closedOrderResponse = mapper.readValue(json, ClosedOrderResponse.class);
 		assertNotNull(closedOrderResponse);
 		Assertions.assertEquals(closedOrderResponse.getResult().getClosed().size(), 5);

@@ -27,7 +27,7 @@ class OhclResponseTest {
 	}
 
 	@Test
-	void test() throws JsonMappingException, JsonProcessingException {
+	void test() throws JsonProcessingException {
 		OhlcResponse response = mapper.readValue(json, OhlcResponse.class);
 
 		assertNotNull(response);
