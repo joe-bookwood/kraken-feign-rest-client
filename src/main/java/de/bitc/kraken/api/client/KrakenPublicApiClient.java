@@ -25,6 +25,6 @@ public interface KrakenPublicApiClient {
     @RequestMapping(method = RequestMethod.GET, value = "/Time")
     ResponseEntity<TimeResponse> fetchTime();
 
-    @RequestMapping(method = RequestMethod.GET, value = "/Status")
+    @RequestMapping(method = RequestMethod.GET, value = "/SystemStatus")
     ResponseEntity<StatusResponse> fetchStatus();
 }

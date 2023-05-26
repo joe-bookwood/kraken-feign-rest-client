@@ -361,4 +361,23 @@ public class AssetPair implements Serializable{
 				&& Objects.equals(quoteAssetClass, other.quoteAssetClass) && Objects.equals(wsName, other.wsName);
 	}
 
+	@Override
+	public String toString() {
+		return "AssetPair{" +
+				"alternatePairName='" + alternatePairName + '\'' +
+				", wsName='" + wsName + '\'' +
+				", baseAssetClass='" + baseAssetClass + '\'' +
+				", baseAsset='" + baseAsset + '\'' +
+				", quoteAssetClass='" + quoteAssetClass + '\'' +
+				", quoteAsset='" + quoteAsset + '\'' +
+				", lot='" + lot + '\'' +
+				", pairDecimals=" + pairDecimals +
+				", lotDecimals=" + lotDecimals +
+				", lotMultiplier=" + lotMultiplier +
+				", marginCall=" + marginCall +
+				", marginLevel=" + marginLevel +
+				", marginStop=" + marginStop +
+				", ordermin='" + ordermin + '\'' +
+				'}';
+	}
 }
