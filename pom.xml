@@ -23,16 +23,20 @@
         <developerConnection>Jochen Buchholz</developerConnection>
         <connection>scm:git:git@github.com:joe-bookwood/kraken-feign-rest-client.git</connection>
     </scm>
+    <repositories>
+        <repository>
+            <id>gitlab-maven</id>
+            <url>${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/maven</url>
+        </repository>
+    </repositories>
     <distributionManagement>
         <repository>
-            <id>releases</id>
-            <name>Internal Release Repository</name>
-            <url>https://tomcat.dsl.buchholz-it.de/archiva/repository/internal/</url>
+            <id>gitlab-maven</id>
+            <url>${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/maven</url>
         </repository>
         <snapshotRepository>
-            <id>snapshots</id>
-            <name>Internal Snapshot Repository</name>
-            <url>https://tomcat.dsl.buchholz-it.de/archiva/repository/snapshots/</url>
+            <id>gitlab-maven</id>
+            <url>${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/maven</url>
         </snapshotRepository>
     </distributionManagement>
     <build>
