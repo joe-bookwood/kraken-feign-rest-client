@@ -34,8 +34,8 @@ class OhclResponseTest {
 		OhclPayload result = response.getResult();
 		assertNotNull(result);
 		List<CandleStick> candleStick = result.getCandleSticks();
-		Assertions.assertEquals(7, candleStick.size());
-		Assertions.assertEquals("2021-11-28T21:44Z",candleStick.get(6).getTime().toString());
+		Assertions.assertEquals(8, candleStick.size());
+		Assertions.assertEquals("2023-10-23T16:39Z",candleStick.get(6).getTime().toString());
 	}
 
 }
